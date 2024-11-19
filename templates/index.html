@@ -3,10 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Recomendação</title>
+    <title>Netflix</title>
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Estilos básicos */
+        body {
+            background-color: #141414;
+            color: #e5e5e5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Logo */
+        .logo {
+            width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Botões */
+        button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f40612;
+        }
+
+        /* Contêiner das séries */
+        #series {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Lista de recomendações */
+        #recommendations {
+            list-style: none;
+            padding: 0;
+        }
+
+        #recommendations li {
+            background-color: #222;
+            margin: 10px auto;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            color: #e5e5e5;
+            width: fit-content;
+        }
+
+        /* Rodapé (opcional) */
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
+    <!-- Adicionando a logo -->
+    <img src="/static/images/netflix-logo.png" alt="Logo da Netflix" class="logo">
+
     <h1>Sistema de Recomendação</h1>
     <p>Escolha uma série para obter recomendações:</p>
     <div id="series">
@@ -18,6 +108,10 @@
     </div>
     <h2>Recomendações:</h2>
     <ul id="recommendations"></ul>
+
+    <footer>
+        © 2024 Sistema de Recomendação - Inspirado em Netflix
+    </footer>
 
     <script>
         function getRecommendations(serie) {

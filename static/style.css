@@ -1,19 +1,91 @@
+/* Corpo principal */
 body {
-    background-color: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    background-color: #141414; /* Fundo oficial da Netflix */
+    color: #e5e5e5; /* Texto em cinza claro */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Estilização de botões */
 button {
-    background-color: red;
+    background-color: #e50914; /* Vermelho oficial da Netflix */
     color: white;
     border: none;
+    border-radius: 4px;
     padding: 10px 20px;
     margin: 5px;
+    font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: darkred;
+    background-color: #f40612; /* Cor ao passar o mouse */
+}
+
+/* Estilização do título */
+h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+/* Contêiner de recomendação */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Lista de itens */
+.recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilização de cartões */
+.card {
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    width: 200px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-bottom: 2px solid #444;
+}
+
+.card h3 {
+    margin: 10px;
+    font-size: 1.2rem;
+    color: #e5e5e5;
+}
+
+.card p {
+    margin: 0 10px 10px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #555;
+}
+.logo {
+    width: 200px; /* Ajuste o tamanho da logo */
+    margin: 20px auto; /* Adicione espaço acima e abaixo */
+    display: block; /* Garante a centralização */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7)); /* Sombra elegante */
 }
