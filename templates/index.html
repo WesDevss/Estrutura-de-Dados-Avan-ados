@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix</title>
-    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+    <title>Sistema de Recomendação</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
         /* Estilos básicos */
@@ -41,8 +40,13 @@
             display: block;
         }
 
-        /* Botões */
-        button {
+        /* Links com nome das séries */
+        .serie-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .serie-link {
             background-color: #e50914;
             color: white;
             border: none;
@@ -54,10 +58,27 @@
             font-weight: bold;
             text-transform: uppercase;
             transition: background-color 0.3s;
+            text-decoration: none;
         }
 
-        button:hover {
+        .serie-link:hover {
             background-color: #f40612;
+        }
+
+        /* Imagem da série (oculta inicialmente) */
+        .serie-image {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 150px;
+            height: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Exibe a imagem ao passar o mouse */
+        .serie-container:hover .serie-image {
+            opacity: 1;
         }
 
         /* Contêiner das séries */
@@ -100,11 +121,27 @@
     <h1>Sistema de Recomendação</h1>
     <p>Escolha uma série para obter recomendações:</p>
     <div id="series">
-        <button onclick="getRecommendations('Stranger Things')">Stranger Things</button>
-        <button onclick="getRecommendations('Dark')">Dark</button>
-        <button onclick="getRecommendations('The Witcher')">The Witcher</button>
-        <button onclick="getRecommendations('Black Mirror')">Black Mirror</button>
-        <button onclick="getRecommendations('Game of Thrones')">Game of Thrones</button>
+        <!-- Contêiner da série com imagem visível ao passar o mouse -->
+        <div class="serie-container">
+            <a href="javascript:void(0);" class="serie-link" onclick="getRecommendations('Stranger Things')">Stranger Things</a>
+            <img src="/static/images/stranger-things.jpg" alt="Stranger Things" class="serie-image">
+        </div>
+        <div class="serie-container">
+            <a href="javascript:void(0);" class="serie-link" onclick="getRecommendations('Dark')">Dark</a>
+            <img src="/static/images/dark.jpg" alt="Dark" class="serie-image">
+        </div>
+        <div class="serie-container">
+            <a href="javascript:void(0);" class="serie-link" onclick="getRecommendations('The Witcher')">The Witcher</a>
+            <img src="/static/images/the-witcher.jpg" alt="The Witcher" class="serie-image">
+        </div>
+        <div class="serie-container">
+            <a href="javascript:void(0);" class="serie-link" onclick="getRecommendations('Black Mirror')">Black Mirror</a>
+            <img src="/static/images/black-mirror.jpg" alt="Black Mirror" class="serie-image">
+        </div>
+        <div class="serie-container">
+            <a href="javascript:void(0);" class="serie-link" onclick="getRecommendations('Game of Thrones')">Game of Thrones</a>
+            <img src="/static/images/game-of-thrones.jpg" alt="Game of Thrones" class="serie-image">
+        </div>
     </div>
     <h2>Recomendações:</h2>
     <ul id="recommendations"></ul>
@@ -123,7 +160,7 @@
             .then(response => response.json())
             .then(data => {
                 const list = document.getElementById("recommendations");
-                list.innerHTML = ""; // Limpa recomendações anteriores
+                list.innerHTML = ""; // Limpa as recomendações anteriores
                 if (data.recomendacoes) {
                     data.recomendacoes.forEach(item => {
                         const li = document.createElement("li");
@@ -131,8 +168,12 @@
                         list.appendChild(li);
                     });
                 } else {
-                    list.innerHTML = `<li>${data.erro}</li>`;
+                    list.innerHTML = `<li>${data.erro || 'Erro desconhecido.'}</li>`;
                 }
+            })
+            .catch(error => {
+                const list = document.getElementById("recommendations");
+                list.innerHTML = `<li>Erro de rede: ${error.message}</li>`;
             });
         }
     </script>

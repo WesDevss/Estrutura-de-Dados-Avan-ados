@@ -5,6 +5,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center; /* Centraliza todo o conteúdo */
 }
 
 /* Estilização de botões */
@@ -22,6 +23,7 @@ button {
     transition: background-color 0.3s;
 }
 
+/* Efeito de hover nos botões */
 button:hover {
     background-color: #f40612; /* Cor ao passar o mouse */
 }
@@ -32,15 +34,23 @@ h1 {
     margin: 20px 0;
 }
 
-/* Contêiner de recomendação */
+/* Contêiner principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center;
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
 }
 
-/* Lista de itens */
+/* Estilização da logo */
+.logo {
+    width: 200px; /* Ajuste o tamanho da logo */
+    margin: 20px auto; /* Adiciona espaçamento acima e abaixo */
+    display: block; /* Garante que a logo seja centralizada */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7)); /* Sombra elegante */
+}
+
+/* Lista de recomendações */
 .recommendations {
     display: flex;
     flex-wrap: wrap;
@@ -59,18 +69,21 @@ h1 {
     text-align: left;
 }
 
+/* Imagem dos cartões */
 .card img {
     width: 100%;
     display: block;
     border-bottom: 2px solid #444;
 }
 
+/* Título dentro do cartão */
 .card h3 {
     margin: 10px;
     font-size: 1.2rem;
     color: #e5e5e5;
 }
 
+/* Descrição dentro do cartão */
 .card p {
     margin: 0 10px 10px;
     font-size: 0.9rem;
@@ -82,10 +95,4 @@ footer {
     margin-top: 50px;
     font-size: 0.8rem;
     color: #555;
-}
-.logo {
-    width: 200px; /* Ajuste o tamanho da logo */
-    margin: 20px auto; /* Adicione espaço acima e abaixo */
-    display: block; /* Garante a centralização */
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7)); /* Sombra elegante */
 }
