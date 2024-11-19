@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Recomendação</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Sistema de Recomendação</h1>
+    <p>Escolha uma série para obter recomendações:</p>
+    <div id="series">
+        <button onclick="getRecommendations('Stranger Things')">Stranger Things</button>
+        <button onclick="getRecommendations('Dark')">Dark</button>
+        <button onclick="getRecommendations('The Witcher')">The Witcher</button>
+        <button onclick="getRecommendations('Black Mirror')">Black Mirror</button>
+        <button onclick="getRecommendations('Game of Thrones')">Game of Thrones</button>
+    </div>
+    <h2>Recomendações:</h2>
+    <ul id="recommendations"></ul>
+
+    <script>
+        function getRecommendations(serie) {
+            fetch("/recomendar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ serie: serie })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById("recommendations");
+                list.innerHTML = ""; // Limpa recomendações anteriores
+                if (data.recomendacoes) {
+                    data.recomendacoes.forEach(item => {
+                        const li = document.createElement("li");
+                        li.textContent = item;
+                        list.appendChild(li);
+                    });
+                } else {
+                    list.innerHTML = `<li>${data.erro}</li>`;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
