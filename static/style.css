@@ -1,16 +1,56 @@
-/* Corpo principal */
+/* Estilos básicos */
 body {
-    background-color: #141414; /* Fundo oficial da Netflix */
-    color: #e5e5e5; /* Texto em cinza claro */
+    background-color: #141414;
+    color: #e5e5e5;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center; /* Centraliza todo o conteúdo */
+    text-align: center;
 }
 
-/* Estilização de botões */
-button {
-    background-color: #e50914; /* Vermelho oficial da Netflix */
+h1, h2 {
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Logo */
+.logo {
+    width: 200px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Contêiner das séries */
+#series {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* Links com nome das séries */
+.serie-container {
+    position: relative;
+    display: inline-block;
+}
+
+.serie-link {
+    background-color: #e50914;
     color: white;
     border: none;
     border-radius: 4px;
@@ -21,78 +61,44 @@ button {
     font-weight: bold;
     text-transform: uppercase;
     transition: background-color 0.3s;
+    text-decoration: none;
 }
 
-/* Efeito de hover nos botões */
-button:hover {
-    background-color: #f40612; /* Cor ao passar o mouse */
+.serie-link:hover {
+    background-color: #f40612;
 }
 
-/* Estilização do título */
-h1 {
-    font-size: 2.5rem;
-    margin: 20px 0;
-}
-
-/* Contêiner principal */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
-}
-
-/* Estilização da logo */
-.logo {
-    width: 200px; /* Ajuste o tamanho da logo */
-    margin: 20px auto; /* Adiciona espaçamento acima e abaixo */
-    display: block; /* Garante que a logo seja centralizada */
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7)); /* Sombra elegante */
-}
-
-/* Lista de recomendações */
+/* Contêiner das recomendações */
 .recommendations {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
-/* Estilização de cartões */
+/* Estilos dos cartões de recomendação */
 .card {
     background-color: #222;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    padding: 15px;
     width: 200px;
-    overflow: hidden;
-    text-align: left;
+    text-align: center;
+    color: #e5e5e5;
+    transition: transform 0.3s;
 }
 
-/* Imagem dos cartões */
 .card img {
     width: 100%;
-    display: block;
-    border-bottom: 2px solid #444;
+    border-radius: 8px;
 }
 
-/* Título dentro do cartão */
-.card h3 {
-    margin: 10px;
-    font-size: 1.2rem;
-    color: #e5e5e5;
+.card:hover {
+    transform: scale(1.05);
 }
 
-/* Descrição dentro do cartão */
-.card p {
-    margin: 0 10px 10px;
-    font-size: 0.9rem;
-    color: #999;
-}
-
-/* Rodapé */
+/* Rodapé (opcional) */
 footer {
     margin-top: 50px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #555;
 }
