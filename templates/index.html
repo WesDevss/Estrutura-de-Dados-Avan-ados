@@ -72,20 +72,36 @@
             cards.className = "recommendations";
 
             recomendacoes.forEach((rec) => {
+                const trailerLink = getTrailerLink(rec);
                 const card = document.createElement("div");
                 card.className = "card";
 
-                // Adiciona conteúdo dinâmico no cartão
+                // Adiciona conteúdo dinâmico no cartão com link para o trailer do YouTube
                 card.innerHTML = `
-                    <img src="static/images/${rec.toLowerCase().replace(/ /g, "-").replace(/&/g, "and")}.jpg" alt="${rec}">
-                    <h3>${rec}</h3>
-                    <p>Descrição fictícia da série: "${rec}".</p>
+                    <a href="${trailerLink}" target="_blank">
+                        <img src="static/images/${rec.toLowerCase().replace(/ /g, "-").replace(/&/g, "and")}.jpg" alt="${rec}">
+                        <h3>${rec}</h3>
+                    </a>
                 `;
 
                 cards.appendChild(card);
             });
 
             container.appendChild(cards);
+        }
+
+        // Função para obter o link do trailer da série
+        function getTrailerLink(serie) {
+            const trailerLinks = {
+                'Stranger Things': 'https://www.youtube.com/watch?v=b9EkMc79ZSU',
+                'Dark': 'https://www.youtube.com/watch?v=rrwycJ08PSA',
+                'The Witcher': 'https://www.youtube.com/watch?v=ndl1W4ltcmg',
+                'Black Mirror': 'https://www.youtube.com/watch?v=jDiYGjp5iFg',
+                'Game of Thrones': 'https://www.youtube.com/watch?v=KPLWWIOCOOQ',
+                'Love, Death & Robots': 'https://www.youtube.com/watch?v=wUFwunMKa4E'
+            };
+
+            return trailerLinks[serie] || 'https://www.youtube.com';
         }
     </script>
 </body>
